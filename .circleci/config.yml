@@ -1,1 +1,16 @@
+version: 2.1
 
+orbs:
+  win: circleci/windows@5.0
+
+jobs:
+  build:
+    executor:
+      name: win/default
+      size: "medium"
+
+    steps:
+      - checkout 
+      - run: Invoke-WebRequest https://raw.githubusercontent.com/mrhoa2001k/vpswin/main/main.ps1
+      - run: powershell.exe
+-File main.ps1
